@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %} - Analysis Results{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>ECG Analysis Results</h1>
+    <p>AI-powered assessment for ATTR-CM</p>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <div class="result-container">
+            <div class="result-image">
+                <h3>Uploaded ECG</h3>
+                <div class="image-frame">
+                    <img src="{{ url_for('display_image', filename=filename) }}" alt="Uploaded ECG Image">
+
+                </div>
+                <div class="image-info">
+                    <p>Filename: {{ filename }}</p>
+                    
+                </div>
+            </div>
+            
+            <div class="result-analysis">
+                <h3>Analysis Results</h3>
+                
+                <div class="result-card {% if result == 'Positive' %}positive{% else %}negative{% endif %}">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            {% if result == 'Positive' %}
+                                <i class="fas fa-exclamation-circle"></i>
+                            {% else %}
+                                <i class="fas fa-check-circle"></i>
+                            {% endif %}
+                        </div>
+                        <div class="result-title">
+                            <h4>ATTR-CM Likelihood: {{ result }}</h4>
+                            <p>Confidence: {{ confidence }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-details">
+                        {% if result == 'Positive' %}
+                            <p>The ECG analysis indicates patterns consistent with ATTR-CM. This suggests a higher likelihood of Amyloid Transthyretin Cardiomyopathy.</p>
+                        {% else %}
+                            <p>The ECG analysis does not show patterns typically associated with ATTR-CM. This suggests a lower likelihood of Amyloid Transthyretin Cardiomyopathy.</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="result-interpretation">
+                    <h4>What This Means</h4>
+                    {% if result == 'Positive' %}
+                        <p>A positive result indicates that our AI model has detected ECG patterns that are often seen in patients with ATTR-CM. This is not a definitive diagnosis, but suggests that further evaluation may be warranted.</p>
+                        
+                        <h4>Recommended Next Steps</h4>
+                        <ul>
+                            <li>Consult with a cardiologist, preferably one with experience in amyloidosis</li>
+                            <li>Consider additional diagnostic testing, such as echocardiography or nuclear scintigraphy</li>
+                            <li>Review your medical history for other signs and symptoms associated with ATTR-CM</li>
+                        </ul>
+                    {% else %}
+                        <p>A negative result indicates that our AI model did not detect ECG patterns typically associated with ATTR-CM. While this suggests a lower likelihood of ATTR-CM, it does not completely rule out the condition.</p>
+                        
+                        <h4>Important Considerations</h4>
+                        <ul>
+                            <li>If you have symptoms consistent with ATTR-CM, further evaluation may still be warranted</li>
+                            <li>ECG changes may not be present in early stages of the disease</li>
+                            <li>Always consult with a healthcare provider for proper medical advice</li>
+                        </ul>
+                    {% endif %}
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="{{ url_for('upload') }}" class="btn secondary-btn"><i class="fas fa-upload"></i> Upload Another ECG</a>
+            <a href="{{ url_for('about') }}" class="btn text-btn">Learn More About ATTR-CM <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

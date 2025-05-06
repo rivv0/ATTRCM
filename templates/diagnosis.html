@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block title %} - Diagnosis of ATTR-CM{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Diagnosis of ATTR-CM</h1>
+    <p>Methods and approaches for detecting Amyloid Transthyretin Cardiomyopathy</p>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <h2>Diagnostic Challenges</h2>
+        <p>ATTR-CM is often underdiagnosed or misdiagnosed for several reasons:</p>
+        <ul>
+            <li>Symptoms overlap with more common forms of heart failure</li>
+            <li>Low awareness among healthcare providers</li>
+            <li>Historically required invasive testing (endomyocardial biopsy)</li>
+            <li>Varied clinical presentation</li>
+        </ul>
+        
+        <div class="info-box">
+            <h3>The Diagnostic Pathway</h3>
+            <p>Diagnosis of ATTR-CM typically follows this pathway:</p>
+            <ol>
+                <li>Clinical suspicion based on symptoms and risk factors</li>
+                <li>Non-invasive cardiac imaging</li>
+                <li>Exclusion of light chain (AL) amyloidosis</li>
+                <li>Nuclear scintigraphy or biopsy confirmation</li>
+                <li>Genetic testing to differentiate between hereditary and wild-type ATTR-CM</li>
+            </ol>
+        </div>
+        
+        <h2>Diagnostic Methods</h2>
+        
+        <h3>Electrocardiogram (ECG)</h3>
+        <p>While not specific for ATTR-CM, ECGs may show characteristic findings that raise suspicion:</p>
+        <ul>
+            <li>Low voltage in limb leads despite increased wall thickness on imaging</li>
+            <li>Pseudoinfarct patterns (Q waves without history of myocardial infarction)</li>
+            <li>Atrial fibrillation or other arrhythmias</li>
+            <li>Conduction abnormalities (e.g., atrioventricular blocks)</li>
+        </ul>
+        
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/attr-cm-ecg.jpg') }}" alt="ECG showing ATTR-CM patterns">
+            <p class="caption">Example ECG showing low voltage and pseudoinfarct pattern characteristic of ATTR-CM</p>
+        </div>
+        
+        <p>Our AI-powered ECG analysis tool is designed to detect subtle patterns in ECG images that may indicate ATTR-CM, potentially enabling earlier diagnosis.</p>
+        
+        <h3>Echocardiography</h3>
+        <p>Echocardiography is often the first imaging test that raises suspicion for cardiac amyloidosis:</p>
+        <ul>
+            <li>Increased left ventricular wall thickness</li>
+            <li>Diastolic dysfunction</li>
+            <li>Preserved ejection fraction (in early stages)</li>
+            <li>"Sparkling" or "granular" appearance of the myocardium</li>
+            <li>Thickened valves</li>
+            <li>Atrial enlargement</li>
+            <li>Pericardial effusion</li>
+        </ul>
+        
+        <h3>Cardiac Magnetic Resonance Imaging (CMR)</h3>
+        <p>CMR with gadolinium contrast can provide additional diagnostic information:</p>
+        <ul>
+            <li>Characteristic pattern of late gadolinium enhancement</li>
+            <li>Abnormal gadolinium kinetics</li>
+            <li>Difficulty nulling the myocardium</li>
+            <li>Increased extracellular volume (ECV)</li>
+        </ul>
+        
+        <h3>Nuclear Scintigraphy</h3>
+        <p>Bone-seeking radiotracers such as technetium-99m pyrophosphate (99mTc-PYP), 99mTc-DPD, or 99mTc-HMDP have high affinity for TTR amyloid fibrils:</p>
+        <ul>
+            <li>Grade 2 or 3 cardiac uptake (equal to or greater than rib uptake)</li>
+            <li>High sensitivity and specificity for ATTR-CM</li>
+            <li>Can diagnose ATTR-CM non-invasively when combined with absence of monoclonal protein</li>
+        </ul>
+        
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/nuclear-scan.jpg') }}" alt="Nuclear scintigraphy showing ATTR-CM">
+            <p class="caption">Nuclear scintigraphy showing increased cardiac uptake characteristic of ATTR-CM</p>
+        </div>
+        
+        <h3>Biopsy</h3>
+        <p>Historically, endomyocardial biopsy was the gold standard for diagnosis:</p>
+        <ul>
+            <li>Direct visualization of amyloid deposits with Congo red staining</li>
+            <li>Immunohistochemistry or mass spectrometry to identify the amyloid type</li>
+            <li>Now often reserved for cases where non-invasive testing is inconclusive</li>
+        </ul>
+        
+        <h3>Genetic Testing</h3>
+        <p>Genetic testing is essential to differentiate between hereditary and wild-type ATTR-CM:</p>
+        <ul>
+            <li>Sequencing of the TTR gene to identify mutations</li>
+            <li>Important for family screening in hereditary cases</li>
+            <li>Influences treatment decisions</li>
+        </ul>
+        
+        <h2>Our AI-Powered ECG Analysis</h2>
+        <p>Our machine learning model has been trained on thousands of ECG images from patients with and without ATTR-CM. It can detect subtle patterns that may not be apparent to the human eye, potentially enabling earlier diagnosis.</p>
+        
+        <p>Benefits of our AI-powered approach include:</p>
+        <ul>
+            <li>Non-invasive screening tool</li>
+            <li>Rapid results</li>
+            <li>Potential for earlier detection</li>
+            <li>Accessibility in various clinical settings</li>
+        </ul>
+        
+        <div class="cta-box">
+            <h3>Try Our ATTR-CM Diagnostic Tool</h3>
+            <p>Upload an ECG image to get an instant analysis powered by our advanced machine learning model.</p>
+            <a href="{{ url_for('upload') }}" class="btn primary-btn">Upload ECG Image</a>
+        </div>
+        
+        <div class="next-steps">
+            <h3>Continue Learning About ATTR-CM</h3>
+            <div class="button-group">
+                <a href="{{ url_for('about') }}" class="btn secondary-btn">About ATTR-CM</a>
+                <a href="{{ url_for('causes') }}" class="btn secondary-btn">Causes</a>
+                <a href="{{ url_for('symptoms') }}" class="btn secondary-btn">Symptoms</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

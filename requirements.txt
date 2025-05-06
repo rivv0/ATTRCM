@@ -1,0 +1,9 @@
+numpy
+opencv-python
+scikit-image
+matplotlib
+seaborn
+xgboost
+scikit-learn
+flask
+Pillow 

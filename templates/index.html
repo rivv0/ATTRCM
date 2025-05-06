@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %} - Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>ATTR-CM Diagnostic Tool</h1>
+        <p>Advanced ECG analysis using machine learning to detect Amyloid Transthyretin Cardiomyopathy</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('upload') }}" class="btn primary-btn">Upload ECG Image</a>
+            <a href="{{ url_for('about') }}" class="btn secondary-btn">Learn About ATTR-CM</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+        </div>
+        <h3>AI-Powered Analysis</h3>
+        <p>Our machine learning model has been trained on thousands of ECG images to accurately detect ATTR-CM patterns.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-heartbeat"></i>
+        </div>
+        <h3>Cardiac Expertise</h3>
+        <p>Developed in collaboration with leading cardiologists specializing in amyloidosis and cardiomyopathy.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Rapid Results</h3>
+        <p>Get diagnostic insights within seconds of uploading your ECG image.</p>
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="info-content">
+        <h2>What is ATTR-CM?</h2>
+        <p>Amyloid Transthyretin Cardiomyopathy (ATTR-CM) is a life-threatening, progressive disease characterized by the buildup of amyloid fibrils composed of misfolded transthyretin protein in the heart.</p>
+        <p>Early diagnosis is crucial for effective treatment and improved patient outcomes.</p>
+        <a href="{{ url_for('about') }}" class="btn text-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="info-image">
+        <img src="{{ url_for('static', filename='images/heart-diagram.jpg') }}" alt="Heart diagram showing ATTR-CM">
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Ready to analyze your ECG?</h2>
+    <p>Upload your ECG image and get instant results powered by our advanced machine learning model.</p>
+    <a href="{{ url_for('upload') }}" class="btn primary-btn">Start Diagnosis</a>
+</section>
+{% endblock %}

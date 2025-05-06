@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block title %} - Symptoms of ATTR-CM{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Symptoms of ATTR-CM</h1>
+    <p>Recognizing the signs of Amyloid Transthyretin Cardiomyopathy</p>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <h2>Cardiac Symptoms</h2>
+        <p>The primary symptoms of ATTR-CM are related to heart failure and include:</p>
+        
+        <div class="symptoms-grid">
+            <div class="symptom-card">
+                <div class="symptom-icon"><i class="fas fa-lungs"></i></div>
+                <h3>Shortness of Breath</h3>
+                <p>Initially with exertion, but eventually even at rest (dyspnea)</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon"><i class="fas fa-tired"></i></div>
+                <h3>Fatigue</h3>
+                <p>Persistent tiredness and reduced exercise capacity</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon"><i class="fas fa-water"></i></div>
+                <h3>Edema</h3>
+                <p>Swelling in the legs, ankles, and feet due to fluid buildup</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon"><i class="fas fa-heartbeat"></i></div>
+                <h3>Palpitations</h3>
+                <p>Awareness of abnormal heart rhythms or racing heartbeat</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon"><i class="fas fa-dizzy"></i></div>
+                <h3>Dizziness/Fainting</h3>
+                <p>Due to reduced blood flow to the brain (syncope)</p>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-icon"><i class="fas fa-bed"></i></div>
+                <h3>Orthopnea</h3>
+                <p>Difficulty breathing when lying flat</p>
+            </div>
+        </div>
+        
+        <h2>Extra-Cardiac Symptoms</h2>
+        <p>ATTR-CM can also affect other organ systems, leading to a variety of symptoms:</p>
+        
+        <div class="info-columns">
+            <div class="info-column">
+                <h3>Neurological</h3>
+                <ul>
+                    <li>Peripheral neuropathy (numbness, tingling, pain in extremities)</li>
+                    <li>Autonomic dysfunction (dizziness, digestive issues)</li>
+                    <li>Carpal tunnel syndrome</li>
+                </ul>
+                
+                <h3>Gastrointestinal</h3>
+                <ul>
+                    <li>Nausea and early satiety</li>
+                    <li>Diarrhea or constipation</li>
+                    <li>Unintentional weight loss</li>
+                </ul>
+            </div>
+            
+            <div class="info-column">
+                <h3>Musculoskeletal</h3>
+                <ul>
+                    <li>Spinal stenosis</li>
+                    <li>Biceps tendon rupture</li>
+                    <li>Joint pain</li>
+                </ul>
+                
+                <h3>Other</h3>
+                <ul>
+                    <li>Bruising easily</li>
+                    <li>Macroglossia (enlarged tongue)</li>
+                    <li>Bilateral carpal tunnel syndrome</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="info-box warning">
+            <h3><i class="fas fa-exclamation-triangle"></i> Red Flags for ATTR-CM</h3>
+            <p>The following combination of symptoms and conditions should raise suspicion for ATTR-CM:</p>
+            <ul>
+                <li>Heart failure with preserved ejection fraction</li>
+                <li>Bilateral carpal tunnel syndrome (especially if it preceded heart failure symptoms by several years)</li>
+                <li>Spinal stenosis</li>
+                <li>Intolerance to standard heart failure medications</li>
+                <li>Unexplained left ventricular hypertrophy on imaging</li>
+                <li>Low voltage on ECG despite increased wall thickness on imaging</li>
+            </ul>
+        </div>
+        
+        <h2>Symptom Progression</h2>
+        <p>ATTR-CM is a progressive disease, with symptoms typically worsening over time:</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">Early</div>
+                <div class="timeline-content">
+                    <p>Mild fatigue and reduced exercise tolerance</p>
+                    <p>Subtle shortness of breath with exertion</p>
+                    <p>Possible early signs of neuropathy</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">Intermediate</div>
+                <div class="timeline-content">
+                    <p>More pronounced heart failure symptoms</p>
+                    <p>Edema requiring diuretics</p>
+                    <p>Arrhythmias may develop</p>
+                    <p>Progressive neuropathy in hereditary forms</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">Advanced</div>
+                <div class="timeline-content">
+                    <p>Severe heart failure symptoms even at rest</p>
+                    <p>Cachexia (muscle wasting)</p>
+                    <p>Significant functional limitation</p>
+                    <p>Potentially life-threatening arrhythmias</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2>When to Seek Medical Attention</h2>
+        <p>You should consult a healthcare provider if you experience:</p>
+        <ul>
+            <li>Persistent shortness of breath, especially if it's worsening</li>
+            <li>Swelling in your legs, ankles, or feet that doesn't improve with rest</li>
+            <li>Fatigue that significantly affects your daily activities</li>
+            <li>Palpitations or irregular heartbeat</li>
+            <li>Fainting episodes</li>
+            <li>A combination of heart failure symptoms and a history of carpal tunnel syndrome</li>
+        </ul>
+        
+        <div class="next-steps">
+            <h3>Continue Learning About ATTR-CM</h3>
+            <div class="button-group">
+                <a href="{{ url_for('about') }}" class="btn secondary-btn">About ATTR-CM</a>
+                <a href="{{ url_for('causes') }}" class="btn secondary-btn">Causes</a>
+                <a href="{{ url_for('diagnosis') }}" class="btn secondary-btn">Diagnosis <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

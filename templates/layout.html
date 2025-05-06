@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTR-CM Diagnostic Portal{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><i class="fas fa-heartbeat"></i> ATTR-CM Diagnostic Portal</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About ATTR-CM</a></li>
+                <li><a href="{{ url_for('causes') }}">Causes</a></li>
+                <li><a href="{{ url_for('symptoms') }}">Symptoms</a></li>
+                <li><a href="{{ url_for('diagnosis') }}">Diagnosis</a></li>
+                <li><a href="{{ url_for('upload') }}" class="cta-button">Upload ECG</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ATTR-CM Diagnostic Portal</h3>
+                <p>A tool for diagnosing Amyloid Transthyretin Cardiomyopathy using machine learning and ECG analysis.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About ATTR-CM</a></li>
+                    <li><a href="{{ url_for('upload') }}">Upload ECG</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> 
+                    <a href="mailto:rivvachahwala@gmail.com">rivvachahwala@gmail.com</a>
+                </p>
+                <p><i class="fab fa-github"></i> 
+                    <a href="https://github.com/rivv0" target="_blank">github.com/rivv0</a>
+                </p>
+            </div>
+            
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AATR-CM Diagnostic Portal. All rights reserved.</p>
+        
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %} - About ATTR-CM{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>About ATTR-CM</h1>
+    <p>Understanding Amyloid Transthyretin Cardiomyopathy</p>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <h2>What is ATTR-CM?</h2>
+        <p>Amyloid Transthyretin Cardiomyopathy (ATTR-CM) is a progressive, life-threatening disease characterized by the deposition of amyloid fibrils composed of misfolded transthyretin protein in the heart.</p>
+        
+        <p>ATTR-CM leads to heart failure, arrhythmias, and other cardiac complications. It can be either hereditary (caused by mutations in the TTR gene) or wild-type (associated with aging).</p>
+        
+        <div class="info-box">
+            <h3>Two Types of ATTR-CM</h3>
+            <div class="info-columns">
+                <div class="info-column">
+                    <h4>Hereditary ATTR-CM</h4>
+                    <ul>
+                        <li>Caused by mutations in the TTR gene</li>
+                        <li>Can affect people as early as their 50s</li>
+                        <li>Varies by geographic region and ethnicity</li>
+                        <li>Family history is an important risk factor</li>
+                    </ul>
+                </div>
+                <div class="info-column">
+                    <h4>Wild-type ATTR-CM</h4>
+                    <ul>
+                        <li>Not caused by genetic mutation</li>
+                        <li>Associated with aging</li>
+                        <li>Typically affects people over 65</li>
+                        <li>More common in men than women</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Disease Progression</h2>
+        <p>ATTR-CM is a progressive disease that worsens over time. The buildup of amyloid fibrils in the heart causes the walls to become stiff, making it difficult for the heart to fill with blood and pump efficiently.</p>
+        
+        <p>As the disease progresses, patients may experience worsening symptoms of heart failure, including:</p>
+        <ul>
+            <li>Increasing fatigue</li>
+            <li>Shortness of breath</li>
+            <li>Edema (swelling) in the legs and ankles</li>
+            <li>Irregular heartbeat</li>
+            <li>Decreased exercise capacity</li>
+        </ul>
+        
+        <h2>Importance of Early Diagnosis</h2>
+        <p>Early diagnosis of ATTR-CM is crucial for several reasons:</p>
+        <ul>
+            <li>It allows for earlier intervention with disease-modifying therapies</li>
+            <li>It helps prevent irreversible cardiac damage</li>
+            <li>It improves overall prognosis and quality of life</li>
+            <li>It enables genetic counseling for family members in hereditary cases</li>
+        </ul>
+        
+        <p>Unfortunately, ATTR-CM is often underdiagnosed or misdiagnosed due to its nonspecific symptoms and the need for specialized testing. Our AI-powered ECG analysis tool aims to improve early detection rates by providing a non-invasive screening method.</p>
+        
+        <div class="next-steps">
+            <h3>Learn More About ATTR-CM</h3>
+            <div class="button-group">
+                <a href="{{ url_for('causes') }}" class="btn secondary-btn">Causes <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ url_for('symptoms') }}" class="btn secondary-btn">Symptoms <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ url_for('diagnosis') }}" class="btn secondary-btn">Diagnosis <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

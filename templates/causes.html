@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block title %} - Causes of ATTR-CM{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Causes of ATTR-CM</h1>
+    <p>Understanding the origins of Amyloid Transthyretin Cardiomyopathy</p>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <h2>The Role of Transthyretin (TTR)</h2>
+        <p>Transthyretin (TTR) is a protein primarily produced by the liver. Its main function is to transport thyroid hormone and vitamin A (retinol) throughout the body. In its normal state, TTR exists as a tetramer—four identical protein subunits bound together.</p>
+        
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/ttr-protein.jpg') }}" alt="Transthyretin protein structure">
+            <p class="caption">Normal tetrameric structure of transthyretin protein</p>
+        </div>
+        
+        <h2>Protein Misfolding: The Root Cause</h2>
+        <p>ATTR-CM occurs when the TTR protein becomes unstable and dissociates from its tetrameric structure into monomers. These monomers then misfold and aggregate, forming amyloid fibrils that deposit in the heart tissue.</p>
+        
+        <p>This process leads to:</p>
+        <ul>
+            <li>Thickening of the heart walls (cardiac hypertrophy)</li>
+            <li>Stiffening of the heart muscle (reduced compliance)</li>
+            <li>Disruption of electrical conduction</li>
+            <li>Impaired cardiac function</li>
+        </ul>
+        
+        <h2>Hereditary ATTR-CM</h2>
+        <p>Hereditary ATTR-CM is caused by mutations in the TTR gene, which is located on chromosome 18. Over 120 different mutations have been identified, with varying effects on disease onset, progression, and organ involvement.</p>
+        
+        <p>Key aspects of hereditary ATTR-CM include:</p>
+        <ul>
+            <li>Autosomal dominant inheritance pattern (only one copy of the mutated gene is needed to cause the disease)</li>
+            <li>Variable penetrance (not everyone with the mutation will develop the disease)</li>
+            <li>Different mutations are associated with different ethnic groups and geographic regions</li>
+            <li>The most common mutation in the United States is V122I, which affects approximately 3-4% of African Americans</li>
+        </ul>
+        
+        <div class="info-box">
+            <h3>Common TTR Mutations</h3>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Mutation</th>
+                        <th>Predominant Population</th>
+                        <th>Clinical Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>V122I</td>
+                        <td>African Americans</td>
+                        <td>Primarily cardiac involvement, late onset</td>
+                    </tr>
+                    <tr>
+                        <td>T60A</td>
+                        <td>Irish</td>
+                        <td>Mixed cardiac and neurologic involvement</td>
+                    </tr>
+                    <tr>
+                        <td>V30M</td>
+                        <td>Portuguese, Swedish, Japanese</td>
+                        <td>Primarily neurologic, variable cardiac involvement</td>
+                    </tr>
+                    <tr>
+                        <td>L111M</td>
+                        <td>Danish</td>
+                        <td>Primarily cardiac involvement</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>Wild-type ATTR-CM</h2>
+        <p>Wild-type ATTR-CM, previously known as senile systemic amyloidosis, is not caused by a genetic mutation. Instead, it is associated with aging and the natural tendency of the TTR protein to become unstable over time.</p>
+        
+        <p>Characteristics of wild-type ATTR-CM include:</p>
+        <ul>
+            <li>Predominantly affects men over the age of 65</li>
+            <li>Increasing prevalence with age</li>
+            <li>No genetic predisposition</li>
+            <li>Often associated with carpal tunnel syndrome, spinal stenosis, and biceps tendon rupture</li>
+        </ul>
+        
+        <h2>Risk Factors</h2>
+        <p>Several factors may increase the risk of developing ATTR-CM:</p>
+        <ul>
+            <li><strong>Age:</strong> The risk of wild-type ATTR-CM increases significantly after age 65</li>
+            <li><strong>Gender:</strong> Wild-type ATTR-CM is more common in men</li>
+            <li><strong>Ethnicity:</strong> Certain mutations are more common in specific ethnic groups</li>
+            <li><strong>Family history:</strong> Having a family member with hereditary ATTR-CM increases risk</li>
+        </ul>
+        
+        <div class="next-steps">
+            <h3>Continue Learning About ATTR-CM</h3>
+            <div class="button-group">
+                <a href="{{ url_for('about') }}" class="btn secondary-btn">About ATTR-CM</a>
+                <a href="{{ url_for('symptoms') }}" class="btn secondary-btn">Symptoms <i class="fas fa-arrow-right"></i></a>
+                <a href="{{ url_for('diagnosis') }}" class="btn secondary-btn">Diagnosis <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

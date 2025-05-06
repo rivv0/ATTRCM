@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block title %} - Upload ECG{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Upload ECG Image</h1>
+    <p>Get instant analysis with our AI-powered diagnostic tool</p>
+</section>
+
+<section class="content-section">
+    <div class="content-container">
+        <div class="upload-container">
+            <div class="upload-instructions">
+                <h2>How It Works</h2>
+                <ol>
+                    <li>
+                        <div class="instruction-icon"><i class="fas fa-file-medical"></i></div>
+                        <div class="instruction-text">
+                            <h3>Prepare Your ECG Image</h3>
+                            <p>Ensure your ECG image is clear and complete. The image should show a standard 12-lead ECG recording.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="instruction-icon"><i class="fas fa-upload"></i></div>
+                        <div class="instruction-text">
+                            <h3>Upload Your Image</h3>
+                            <p>Click the upload button and select your ECG image file. We accept JPG, PNG, and PDF formats.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="instruction-icon"><i class="fas fa-brain"></i></div>
+                        <div class="instruction-text">
+                            <h3>AI Analysis</h3>
+                            <p>Our machine learning model will analyze the ECG for patterns associated with ATTR-CM.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="instruction-icon"><i class="fas fa-chart-bar"></i></div>
+                        <div class="instruction-text">
+                            <h3>View Results</h3>
+                            <p>Receive instant results showing the likelihood of ATTR-CM based on the ECG analysis.</p>
+                        </div>
+                    </li>
+                </ol>
+                
+                
+            </div>
+            
+            <div class="upload-form-container">
+                <h2>Upload Your ECG</h2>
+                <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="upload-form">
+                    <div class="file-upload-area" id="drop-area">
+                        <input type="file" name="ecg_image" id="fileElem" accept="image/*,.pdf" class="file-input">
+                        <label for="fileElem" class="file-label">
+                            <div class="upload-icon"><i class="fas fa-file-upload"></i></div>
+                            <div class="upload-text">
+                                <span class="primary-text">Drag & drop your ECG image here</span>
+                                <span class="secondary-text">or click to browse files</span>
+                                <span class="file-types">Supported formats: JPG, PNG, PDF</span>
+                            </div>
+                        </label>
+                        <div id="file-preview" class="file-preview hidden">
+                            <img id="preview-image" src="/placeholder.svg" alt="Preview">
+                            <div class="file-info">
+                                <span id="file-name"></span>
+                                <button type="button" id="remove-file" class="remove-file"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary-btn submit-btn">
+                            <i class="fas fa-brain"></i> Analyze ECG
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('fileElem');
+        const preview = document.getElementById('file-preview');
+        const previewImage = document.getElementById('preview-image');
+        const fileName = document.getElementById('file-name');
+        const removeButton = document.getElementById('remove-file');
+        
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropArea.classList.add('highlight');
+        }
+        
+        function unhighlight() {
+            dropArea.classList.remove('highlight');
+        }
+        
+        // Handle dropped files
+        dropArea.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length) {
+                fileInput.files = files;
+                updateFilePreview(files[0]);
+            }
+        }
+        
+        // Handle selected files
+        fileInput.addEventListener('change', function() {
+            if (this.files.length) {
+                updateFilePreview(this.files[0]);
+            }
+        });
+        
+        // Update file preview
+        function updateFilePreview(file) {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    fileName.textContent = file.name;
+                };
+                reader.readAsDataURL(file);
+            } else if (file.type === 'application/pdf') {
+                previewImage.src = "{{ url_for('static', filename='images/pdf-icon.png') }}";
+                preview.classList.remove('hidden');
+                fileName.textContent = file.name;
+            }
+        }
+        
+        // Remove file
+        removeButton.addEventListener('click', function() {
+            fileInput.value = '';
+            preview.classList.add('hidden');
+            previewImage.src = '';
+            fileName.textContent = '';
+        });
+    });
+</script>
+{% endblock %}
